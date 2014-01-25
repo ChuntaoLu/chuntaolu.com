@@ -3,7 +3,7 @@
 <div id="articles">
   <% @articles.each do |article| %>
       <h2><%= link_to article.title, article %></h2>
-      <%= simple_format article.body %>
+      <%= markdown(article.body) %>
       <p>Tags: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
       <p>
         <%= link_to "Edit", edit_article_path(article) %>
