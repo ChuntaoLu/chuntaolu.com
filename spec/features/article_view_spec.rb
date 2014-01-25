@@ -4,40 +4,19 @@ require 'capybara/rails'
 
 
 describe 'the article view' do
+  let!(:article_1) { FactoryGirl.create(:article, title:'Test 1', tag_list: 'foo') }
+  let!(:article_2) { FactoryGirl.create(:article, title:'Test 2', tag_list: 'foo, bar') }
 
   context "on the articles index page" do
+
     before(:each) do
-      @article_1 = FactoryGirl.create(:article, title:'Test_1', tag_list: 'foo')
-      @article_2 = FactoryGirl.create(:article, title:'Test_2', tag_list: 'foo, bar')
       visit articles_path
     end
 
     it 'links titles to the articles' do
-      [@article_1, @article_2].each do |article|
+      [article_1, article_2].each do |article|
         expect(page).to have_link(article.title, href: article_path(article))
       end
-    end
-
-    it 'shows the article tags' do
-      [@article_1, @article_2].each do |article|
-        article.tag_list.each do |tag|
-          expect(page).to have_link(tag, href: tag_path(tag))
-        end
-      end
-    end
-
-    it 'shows tagged articles after a tag is clicked' do
-      first(:link, 'foo').click
-      expect(current_path).to eq(tag_path('foo'))
-      expect(page).to have_content(@article_1.title)
-      expect(page).to have_content(@article_2.title)
-    end
-
-    it 'does not show unrelated article when a tag is clicked' do
-      click_link('bar')
-      expect(current_path).to eq(tag_path('bar'))
-      expect(page).not_to have_content(@article_1.title)
-      expect(page).to have_content(@article_2.title)
     end
 
     it 'has link to add new article' do
@@ -53,7 +32,7 @@ describe 'the article view' do
     end
 
     it 'has link to edit an article' do
-      [@article_1, @article_2].each do |article|
+      [article_1, article_2].each do |article|
         expect(page).to have_link('Edit', href: edit_article_path(article))
       end
     end
@@ -63,11 +42,11 @@ describe 'the article view' do
       page.fill_in('Title', with: 'NewTitle')
       page.click_button('Update Article')
       expect(page).to have_content('NewTitle')
-      expect(page).not_to have_content('Test_1')
+      expect(page).not_to have_content('Test 1')
     end
 
     it 'has link to delete an article' do
-      [@article_1, @article_2].each do |article|
+      [article_1, article_2].each do |article|
         expect(page).to have_link('Delete', href: article_path(article))
       end
     end
@@ -76,9 +55,75 @@ describe 'the article view' do
       first(:link, 'Delete').click
       page.driver.browser.accept_js_confirms
       expect(current_path).to eq(articles_path)
-      expect(page).not_to have_content(@article_1.title)
+      expect(page).not_to have_content(article_1.title)
     end
 
+    describe "article tags" do
+      it 'shows the article tags' do
+        [article_1, article_2].each do |article|
+          article.tag_list.each do |tag|
+            expect(page).to have_link(tag, href: tag_path(tag))
+          end
+        end
+      end
+
+      it 'shows tagged articles after a tag is clicked' do
+        first(:link, 'foo').click
+        expect(current_path).to eq(tag_path('foo'))
+        expect(page).to have_content(article_1.title)
+        expect(page).to have_content(article_2.title)
+      end
+
+      it 'does not show unrelated article when a tag is clicked' do
+        click_link('bar')
+        expect(current_path).to eq(tag_path('bar'))
+        expect(page).not_to have_content(article_1.title)
+        expect(page).to have_content(article_2.title)
+      end
+    end
+  end
+
+  context 'on the article show page' do
+    before(:each) do
+      visit article_path(article_1)
+    end
+
+    # actions of 'edit' and 'delete' already tested on index page
+    it 'has a link back to articles' do
+      expect(page).to have_link('Back', href: articles_path)
+    end
+
+    it 'has link to edit the article' do
+      expect(page).to have_link('Edit', href: edit_article_path(article_1))
+    end
+
+    it 'has links of its tags' do
+      article_1.tag_list.each do |tag|
+        expect(page).to have_link(tag, href: tag_path(tag))
+      end
+    end
+
+    describe "friendly url" do
+      it 'has a friendly url' do
+        slug = article_1.title.downcase.gsub(/\s+/, '-')
+        expect(current_path).to eq(article_path(slug))
+      end
+
+      it 'updates url according to title update' do
+        article_1.title = 'New Title'
+        article_1.save
+        visit article_path(article_1)
+        expect(current_path).to eq(article_path('new-title'))
+      end
+
+      it 'redirect an old url to the updated url' do
+        old_slug = article_1.title.downcase.gsub(/\s+/, '-')
+        article_1.title = 'New Title'
+        article_1.save
+        visit article_path(old_slug)
+        expect(current_path).to eq(article_path(article_1))
+      end
+    end
   end
 
 end
