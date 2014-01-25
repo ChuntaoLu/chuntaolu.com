@@ -1,4 +1,9 @@
 MyWeb::Application.routes.draw do
+  root to: "articles#index"
+  resources :articles
+  get 'tags/:tag', to: 'articles#index', as: :tag
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

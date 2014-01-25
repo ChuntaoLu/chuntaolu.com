@@ -1,0 +1,84 @@
+require 'spec_helper'
+require 'capybara/rspec'
+require 'capybara/rails'
+
+
+describe 'the article view' do
+
+  context "on the articles index page" do
+    before(:each) do
+      @article_1 = FactoryGirl.create(:article, title:'Test_1', tag_list: 'foo')
+      @article_2 = FactoryGirl.create(:article, title:'Test_2', tag_list: 'foo, bar')
+      visit articles_path
+    end
+
+    it 'links titles to the articles' do
+      [@article_1, @article_2].each do |article|
+        expect(page).to have_link(article.title, href: article_path(article))
+      end
+    end
+
+    it 'shows the article tags' do
+      [@article_1, @article_2].each do |article|
+        article.tag_list.each do |tag|
+          expect(page).to have_link(tag, href: tag_path(tag))
+        end
+      end
+    end
+
+    it 'shows tagged articles after a tag is clicked' do
+      first(:link, 'foo').click
+      expect(current_path).to eq(tag_path('foo'))
+      expect(page).to have_content(@article_1.title)
+      expect(page).to have_content(@article_2.title)
+    end
+
+    it 'does not show unrelated article when a tag is clicked' do
+      click_link('bar')
+      expect(current_path).to eq(tag_path('bar'))
+      expect(page).not_to have_content(@article_1.title)
+      expect(page).to have_content(@article_2.title)
+    end
+
+    it 'has link to add new article' do
+      expect(page).to have_link('New Article', href: new_article_path)
+    end
+
+    it 'adds new article' do
+      page.click_link('New Article')
+      page.fill_in('Title', with: 'Lorem ipsum')
+      page.fill_in('Body', with: 'View impressively like a lunar sun.')
+      page.fill_in('Tags (separated by commas)', with: 'life')
+      expect { page.click_button('Create Article') }.to change(Article, :count).by(1)
+    end
+
+    it 'has link to edit an article' do
+      [@article_1, @article_2].each do |article|
+        expect(page).to have_link('Edit', href: edit_article_path(article))
+      end
+    end
+
+    it 'edits an article' do
+      first(:link, 'Edit').click
+      page.fill_in('Title', with: 'NewTitle')
+      page.click_button('Update Article')
+      expect(page).to have_content('NewTitle')
+      expect(page).not_to have_content('Test_1')
+    end
+
+    it 'has link to delete an article' do
+      [@article_1, @article_2].each do |article|
+        expect(page).to have_link('Delete', href: article_path(article))
+      end
+    end
+
+    it 'deletes an article', js: true do
+      first(:link, 'Delete').click
+      page.driver.browser.accept_js_confirms
+      expect(current_path).to eq(articles_path)
+      expect(page).not_to have_content(@article_1.title)
+    end
+
+  end
+
+end

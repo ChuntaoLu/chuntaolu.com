@@ -65,9 +65,13 @@ module MyWeb
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    I18n.config.enforce_available_locales = true
+
     config.generators do |g|
       g.test_framework      :rspec, fixture: true
       g.fixture_replacement :factory_girl
+      g.stylesheets false
+      g.scaffold_controller "scaffold_controller"
     end
 
   end

@@ -44,6 +44,7 @@ group :development, :test do
   gem 'redcarpet'
   gem 'pygments.rb'
   gem 'nokogiri'
+  gem 'acts-as-taggable-on'
 end
 
 group :production do

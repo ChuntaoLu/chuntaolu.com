@@ -1,0 +1,23 @@
+body {
+    background-color: #eee;
+    width: 1000px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#articles {
+    text-align: left;
+    width: 800px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+    padding-left: 100px;
+    color: #555;
+}
