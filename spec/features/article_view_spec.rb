@@ -13,6 +13,16 @@ describe 'the article view' do
       visit articles_path
     end
 
+    it 'shows articles in descending order' do
+      expect(page.body).to match(/Test 2.*Test 1/m)
+    end
+
+    it 'shows the created date for each article' do
+      [article_1, article_2].each do |article|
+        expect(page).to have_content(article.created_at.strftime('%b %d %Y'))
+      end
+    end
+
     it 'links titles to the articles' do
       [article_1, article_2].each do |article|
         expect(page).to have_link(article.title, href: article_path(article))
@@ -55,7 +65,7 @@ describe 'the article view' do
       first(:link, 'Delete').click
       page.driver.browser.accept_js_confirms
       expect(current_path).to eq(articles_path)
-      expect(page).not_to have_content(article_1.title)
+      expect(page).not_to have_content(article_2.title)
     end
 
     describe "article tags" do
@@ -81,11 +91,36 @@ describe 'the article view' do
         expect(page).to have_content(article_2.title)
       end
     end
+
+    describe "archive" do
+      before(:each) do
+        article_1.created_at = 1.year.ago
+        article_1.save
+      end
+
+      it 'has a link to archives' do
+        expect(page).to have_link('Archive', href: archive_articles_path)
+      end
+
+      it 'shows archive articles grouped by year' do
+        page.click_link('Archive')
+        expect(current_path).to eq(archive_articles_path)
+        [article_1, article_2].each do |article|
+          expect(page).to have_content(article.created_at.year)
+          expect(page).to have_content(article.created_at.strftime('%b %d'))
+          expect(page).to have_link(article.title, href: article_path(article))
+        end
+      end
+    end
   end
 
   context 'on the article show page' do
     before(:each) do
       visit article_path(article_1)
+    end
+
+    it 'shows the created date for the article' do
+        expect(page).to have_content(article_1.created_at.strftime('%b %d %Y'))
     end
 
     # actions of 'edit' and 'delete' already tested on index page

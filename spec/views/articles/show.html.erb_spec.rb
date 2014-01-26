@@ -5,7 +5,8 @@ describe "articles/show" do
     @article = assign(:article, stub_model(Article,
       :title => "Title",
       :body => "MyText",
-      :tag_list => "MyTag"
+      :tag_list => "MyTag",
+      :created_at => 1.day.ago
     ))
   end
 

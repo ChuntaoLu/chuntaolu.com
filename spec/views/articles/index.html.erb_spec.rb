@@ -5,11 +5,13 @@ describe "articles/index" do
     assign(:articles, [
       stub_model(Article,
         :title => "Title",
-        :body => "MyText"
+        :body => "MyText",
+        :created_at => 1.day.ago
       ),
       stub_model(Article,
         :title => "Title",
-        :body => "MyText"
+        :body => "MyText",
+        :created_at => 1.week.ago
       )
     ])
   end

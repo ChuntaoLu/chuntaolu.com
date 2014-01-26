@@ -1,17 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
   <%= @article.title %>
 </p>
 
 <p>
+  <%= @article.created_at.strftime('%b %d %Y') %> |
   <b>Tags:</b>
   <%= raw @article.tag_list.map {|tag| link_to tag, tag_path(tag) }.join(', ') %>
 </p>
 
 <p>
-  <b>Body:</b>
   <%= markdown(@article.body) %>
 </p>
 

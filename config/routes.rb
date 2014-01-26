@@ -1,6 +1,10 @@
 MyWeb::Application.routes.draw do
   root to: "articles#index"
-  resources :articles
+  resources :articles do
+    collection do
+      get 'archive'
+    end
+  end
   get 'tags/:tag', to: 'articles#index', as: :tag
 
 

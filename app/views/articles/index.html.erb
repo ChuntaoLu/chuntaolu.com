@@ -1,10 +1,16 @@
-<h1>Articles</h1>
-
+<h1>Blog</h1>
+<div>
+    <%= link_to 'Articles', articles_path %> |
+    <%= link_to 'Archive', archive_articles_path %>
+</div>
 <div id="articles">
   <% @articles.each do |article| %>
       <h2><%= link_to article.title, article %></h2>
+      <p>
+        <%= article.created_at.strftime('%b %d %Y') %> |
+        Tags: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </p>
       <%= markdown(article.body) %>
-      <p>Tags: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
       <p>
         <%= link_to "Edit", edit_article_path(article) %>
         <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -3,15 +3,19 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     if params[:tag]
-      @articles = Article.tagged_with(params[:tag])
+      @articles = Article.desc.tagged_with(params[:tag])
     else
-      @articles = Article.all
+      @articles = Article.desc.all
     end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }
     end
+  end
+
+  def archive
+    @articles_year = Article.desc.group_by { |t| t.created_at.beginning_of_year }
   end
 
   # GET /articles/1
