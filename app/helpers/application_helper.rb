@@ -24,4 +24,9 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(renderer, extensions)
     markdown.render(text).html_safe
   end
+
+  def date_string(date, year=false)
+    format = year ? '%b %d %Y' : '%b %d'
+    date.strftime(format)
+  end
 end

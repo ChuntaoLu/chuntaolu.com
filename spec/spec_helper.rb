@@ -38,6 +38,8 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  config.include ApplicationHelper
+
   Capybara.javascript_driver = :webkit
 
   #configue database cleaner

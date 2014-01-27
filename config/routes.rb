@@ -1,4 +1,7 @@
 MyWeb::Application.routes.draw do
+  resources :moocs, except: [:show]
+
+
   resources :microposts, except: [:show]
 
 

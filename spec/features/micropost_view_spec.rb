@@ -17,7 +17,7 @@ describe 'the micropost view' do
 
   it 'shows the created date for each micropost' do
     [micropost_1, micropost_2].each do |micropost|
-      expect(page).to have_content(micropost.month_day)
+      expect(page).to have_content(date_string(micropost.created_at))
     end
   end
 
@@ -83,25 +83,6 @@ describe 'the micropost view' do
     end
   end
 
-  #describe "archive" do
-  #  before(:each) do
-  #    micropost_1.created_at = 1.year.ago
-  #    micropost_1.save
-  #  end
-  #
-  #  it 'has a link to archives' do
-  #    expect(page).to have_link('Archive', href: archive_microposts_path)
-  #  end
-  #
-  #  it 'shows archive microposts grouped by year' do
-  #    page.click_link('Archive')
-  #    expect(current_path).to eq(archive_microposts_path)
-  #    [micropost_1, micropost_2].each do |micropost|
-  #      expect(page).to have_content(micropost.created_at.year)
-  #      expect(page).to have_content(micropost.created_at.strftime('%b %d'))
-  #      expect(page).to have_link(micropost.title, href: micropost_path(micropost))
-  #    end
-  #  end
 end
 
 

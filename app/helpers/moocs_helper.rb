@@ -1,0 +1,2 @@
+module MoocsHelper
+end

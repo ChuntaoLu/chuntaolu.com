@@ -19,7 +19,7 @@ describe 'the article view' do
 
     it 'shows the created date for each article' do
       [article_1, article_2].each do |article|
-        expect(page).to have_content(article.created_at.strftime('%b %d %Y'))
+        expect(page).to have_content(date_string(article.created_at, true))
       end
     end
 
@@ -107,7 +107,7 @@ describe 'the article view' do
         expect(current_path).to eq(archive_articles_path)
         [article_1, article_2].each do |article|
           expect(page).to have_content(article.created_at.year)
-          expect(page).to have_content(article.created_at.strftime('%b %d'))
+          expect(page).to have_content(date_string(article.created_at))
           expect(page).to have_link(article.title, href: article_path(article))
         end
       end
@@ -120,7 +120,7 @@ describe 'the article view' do
     end
 
     it 'shows the created date for the article' do
-        expect(page).to have_content(article_1.created_at.strftime('%b %d %Y'))
+        expect(page).to have_content(date_string(article_1.created_at, true))
     end
 
     # actions of 'edit' and 'delete' already tested on index page

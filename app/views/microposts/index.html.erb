@@ -5,7 +5,7 @@
 </div>
 <% @microposts.each do |micropost| %>
     <p>
-      <%= micropost.month_day %> |
+      <%= date_string(micropost.created_at) %> |
       Tags: <%= raw micropost.tag_list.map { |t| link_to t, microposts_tag_path(t) }.join(', ') %>
     </p>
     <%= markdown(micropost.content) %>
