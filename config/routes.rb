@@ -1,19 +1,21 @@
 MyWeb::Application.routes.draw do
-  resources :pages
+  root to: "pages#home"
 
 
   resources :moocs, except: [:show]
 
-
   resources :microposts, except: [:show]
 
-
-  root to: "articles#index"
-  resources :articles do
+  resources :articles, path: 'blog' do
     collection do
       get 'archive'
     end
   end
+
+  get 'pages', to: 'pages#index'
+  post 'pages', to: 'pages#create'
+  resources :pages, path: ''
+
   get 'article-tags/:tag', to: 'articles#index', as: :articles_tag
   get 'micropost-tags/:tag', to: 'microposts#index', as: :microposts_tag
 
