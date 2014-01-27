@@ -1,4 +1,7 @@
 MyWeb::Application.routes.draw do
+  resources :pages
+
+
   resources :moocs, except: [:show]
 
 
