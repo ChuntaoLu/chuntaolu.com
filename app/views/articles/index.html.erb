@@ -8,7 +8,7 @@
       <h2><%= link_to article.title, article %></h2>
       <p>
         <%= article.created_at.strftime('%b %d %Y') %> |
-        Tags: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+        Tags: <%= raw article.tag_list.map { |t| link_to t, articles_tag_path(t) }.join(', ') %>
       </p>
       <%= markdown(article.body) %>
       <p>

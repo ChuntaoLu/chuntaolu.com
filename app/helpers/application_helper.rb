@@ -2,8 +2,12 @@ module ApplicationHelper
   #refer to redcarpet documentation
   class HTMLwithPygments < Redcarpet::Render::HTML
     def block_code(code, language)
-      Pygments.highlight(code, :lexer => language,
-                         options: { :lineanchors => true })
+      options = { :lineanchors => true }
+      begin
+        Pygments.highlight(code, :lexer => language, options: options)
+      rescue
+        Pygments.highlight(code, :lexer => :text, options: options)
+      end
     end
   end
 

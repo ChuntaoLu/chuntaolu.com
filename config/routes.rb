@@ -1,11 +1,15 @@
 MyWeb::Application.routes.draw do
+  resources :microposts, except: [:show]
+
+
   root to: "articles#index"
   resources :articles do
     collection do
       get 'archive'
     end
   end
-  get 'tags/:tag', to: 'articles#index', as: :tag
+  get 'article-tags/:tag', to: 'articles#index', as: :articles_tag
+  get 'micropost-tags/:tag', to: 'microposts#index', as: :microposts_tag
 
 
   # The priority is based upon order of creation:

@@ -7,7 +7,7 @@
 <p>
   <%= @article.created_at.strftime('%b %d %Y') %> |
   <b>Tags:</b>
-  <%= raw @article.tag_list.map {|tag| link_to tag, tag_path(tag) }.join(', ') %>
+  <%= raw @article.tag_list.map {|tag| link_to tag, articles_tag_path(tag) }.join(', ') %>
 </p>
 
 <p>

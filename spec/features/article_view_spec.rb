@@ -72,21 +72,21 @@ describe 'the article view' do
       it 'shows the article tags' do
         [article_1, article_2].each do |article|
           article.tag_list.each do |tag|
-            expect(page).to have_link(tag, href: tag_path(tag))
+            expect(page).to have_link(tag, href: articles_tag_path(tag))
           end
         end
       end
 
       it 'shows tagged articles after a tag is clicked' do
         first(:link, 'foo').click
-        expect(current_path).to eq(tag_path('foo'))
+        expect(current_path).to eq(articles_tag_path('foo'))
         expect(page).to have_content(article_1.title)
         expect(page).to have_content(article_2.title)
       end
 
       it 'does not show unrelated article when a tag is clicked' do
         click_link('bar')
-        expect(current_path).to eq(tag_path('bar'))
+        expect(current_path).to eq(articles_tag_path('bar'))
         expect(page).not_to have_content(article_1.title)
         expect(page).to have_content(article_2.title)
       end
@@ -134,7 +134,7 @@ describe 'the article view' do
 
     it 'has links of its tags' do
       article_1.tag_list.each do |tag|
-        expect(page).to have_link(tag, href: tag_path(tag))
+        expect(page).to have_link(tag, href: articles_tag_path(tag))
       end
     end
 

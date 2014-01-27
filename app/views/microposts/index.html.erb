@@ -1,0 +1,20 @@
+<h1>Microposts</h1>
+
+<div id="microposts">
+
+</div>
+<% @microposts.each do |micropost| %>
+    <p>
+      <%= micropost.month_day %> |
+      Tags: <%= raw micropost.tag_list.map { |t| link_to t, microposts_tag_path(t) }.join(', ') %>
+    </p>
+    <%= markdown(micropost.content) %>
+    <p>
+      <%= link_to "Edit", edit_micropost_path(micropost) %>
+      <%= link_to 'Delete', micropost, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>
+
+<br />
+
+<%= link_to 'New Micropost', new_micropost_path %>
