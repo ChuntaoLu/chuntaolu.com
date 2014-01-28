@@ -1,0 +1,14 @@
+%p#notice= notice
+%p
+  = @article.title
+%p
+  = date_string(@article.created_at, true)
+  |
+  %b Tags:
+  = raw @article.tag_list.map {|tag| link_to tag, articles_tag_path(tag) }.join(', ')
+%p
+  = markdown(@article.body)
+- if current_user
+  = link_to 'Edit', edit_article_path(@article)
+  |
+  = link_to 'Back', articles_path
