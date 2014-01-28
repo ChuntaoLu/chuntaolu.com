@@ -40,6 +40,8 @@ RSpec.configure do |config|
 
   config.include ApplicationHelper
 
+  config.include Sorcery::TestHelpers::Rails
+
   Capybara.javascript_driver = :webkit
 
   #configue database cleaner

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_filter :require_login, except: [:show, :home]
 
   def home
   end

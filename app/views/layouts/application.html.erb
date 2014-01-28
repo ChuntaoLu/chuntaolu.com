@@ -7,7 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Blog', articles_path %>
+  <%= link_to 'Microposts', microposts_path %>
+  <%= link_to 'Moocs', moocs_path %>
+  <%= link_to 'About', page_path('about') %>
+</div>
+<div class="user_nav">
+  <% if current_user %>
+      Logged in as <%= current_user.email %>.
+      <%= link_to "Log out", logout_path %> |
+      <%= link_to "Pages", pages_path %> |
+      <%= link_to "Users", users_path %>
+  <% end %>
+</div>
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
 <%= yield %>
 
 </body>

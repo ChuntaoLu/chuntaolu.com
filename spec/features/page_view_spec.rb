@@ -3,7 +3,11 @@ require 'capybara/rspec'
 require 'capybara/rails'
 
 
-describe 'the page view' do
+describe 'the page view', type: :feature  do
+  let!(:user) { FactoryGirl.create(:user) }
+
+  before { login_user_post('foo', 'bar')}
+
   let!(:page_1) { FactoryGirl.create(:page, name:'Test 1') }
   let!(:page_2) { FactoryGirl.create(:page, name:'Test 2') }
 

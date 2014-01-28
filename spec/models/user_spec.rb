@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  let!(:user) { FactoryGirl.create(:user,
-                                  email: 'a@example.com',
-                                  password: 'foobar',
-                                  password_confirmation: 'foobar') }
+  let!(:user) { FactoryGirl.create(:user) }
 
   it 'is valid' do
     expect(user).to be_valid
@@ -29,7 +26,7 @@ describe User do
 
   it 'does not create a new user with same email address' do
     expect do
-      User.create!(email: 'a@example.com', password: 'foobar', password_confirmation: 'foobar')
+      User.create!(email: 'foo', password: 'foobar', password_confirmation: 'foobar')
     end.to raise_error
   end
 end

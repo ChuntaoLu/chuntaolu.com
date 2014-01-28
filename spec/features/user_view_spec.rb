@@ -3,13 +3,14 @@ require 'capybara/rspec'
 require 'capybara/rails'
 
 
-describe 'the user view' do
+describe 'the user view', type: :feature  do
   let!(:user_1) { FactoryGirl.create(:user, email: 'a@x.com', password: 'foo', password_confirmation: 'foo') }
   let!(:user_2) { FactoryGirl.create(:user, email: 'b@x.com', password: 'bar', password_confirmation: 'bar') }
 
   context "on the users index page" do
 
     before(:each) do
+      login_user_post('b@x.com', 'bar')
       visit users_path
     end
 

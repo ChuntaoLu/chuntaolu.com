@@ -3,7 +3,11 @@ require 'capybara/rspec'
 require 'capybara/rails'
 
 
-describe 'the micropost view' do
+describe 'the micropost view', type: :feature do
+  let!(:user) { FactoryGirl.create(:user) }
+
+  before { login_user_post('foo', 'bar')}
+
   let!(:micropost_1) { FactoryGirl.create(:micropost, content: 'first post', tag_list: 'foo') }
   let!(:micropost_2) { FactoryGirl.create(:micropost, content: 'second post', tag_list: 'foo, bar') }
 

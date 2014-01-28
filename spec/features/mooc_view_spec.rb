@@ -3,7 +3,11 @@ require 'capybara/rspec'
 require 'capybara/rails'
 
 
-describe 'the mooc view' do
+describe 'the mooc view', type: :feature do
+  let!(:user) { FactoryGirl.create(:user) }
+
+  before { login_user_post('foo', 'bar')}
+
   let!(:mooc_1) { FactoryGirl.create(:mooc, name: 'first course', platform: 'Edx') }
   let!(:mooc_2) { FactoryGirl.create(:mooc, name: 'second course', platform: 'Coursera') }
 

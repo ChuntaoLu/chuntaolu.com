@@ -1,4 +1,6 @@
 class MoocsController < ApplicationController
+  before_filter :require_login, except: [:index]
+
   # GET /moocs
   # GET /moocs.json
   def index

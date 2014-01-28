@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_filter :require_login, except: [:index, :show, :archive]
+
   # GET /articles
   # GET /articles.json
   def index

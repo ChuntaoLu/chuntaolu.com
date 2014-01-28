@@ -1,4 +1,6 @@
 class MicropostsController < ApplicationController
+  before_filter :require_login, except: [:index]
+
   # GET /microposts
   # GET /microposts.json
   def index

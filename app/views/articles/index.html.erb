@@ -12,10 +12,13 @@
       </p>
       <%= markdown(article.body) %>
       <p>
-        <%= link_to "Edit", edit_article_path(article) %>
-        <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% if current_user %>
+          <%= link_to "Edit", edit_article_path(article) %>
+          <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end  %>
       </p>
   <% end %>
 </div>
-
-<p><%= link_to "New Article", new_article_path %></p>
+<% if current_user %>
+  <p><%= link_to "New Article", new_article_path %></p>
+<% end %>

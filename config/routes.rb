@@ -1,7 +1,8 @@
 MyWeb::Application.routes.draw do
+
   root to: "pages#home"
 
-  resources :users
+  resources :users, except: [:show]
 
   resources :moocs, except: [:show]
 
@@ -13,12 +14,17 @@ MyWeb::Application.routes.draw do
     end
   end
 
+  get 'login', to: "sessions#new", as: 'login'
+  get 'logout', to: "sessions#destroy", as: 'logout'
+  resources :sessions, only: [:new, :create, :destroy]
+
+  get 'article-tags/:tag', to: 'articles#index', as: :articles_tag
+  get 'micropost-tags/:tag', to: 'microposts#index', as: :microposts_tag
+
   get 'pages', to: 'pages#index'
   post 'pages', to: 'pages#create'
   resources :pages, path: ''
 
-  get 'article-tags/:tag', to: 'articles#index', as: :articles_tag
-  get 'micropost-tags/:tag', to: 'microposts#index', as: :microposts_tag
 
 
   # The priority is based upon order of creation:

@@ -20,6 +20,12 @@ require 'spec_helper'
 
 describe UsersController do
 
+  let(:user) { FactoryGirl.create(:user) }
+
+  before(:each) do
+    login_user user
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # update the return value of this method accordingly.
@@ -36,7 +42,7 @@ describe UsersController do
 
   describe "GET index" do
     it "assigns all users as @users" do
-      user = User.create! valid_attributes
+      #user = User.create! valid_attributes
       get :index, {}, valid_session
       assigns(:users).should eq([user])
     end
