@@ -1,6 +1,7 @@
 MyWeb::Application.routes.draw do
   root to: "pages#home"
 
+  resources :users
 
   resources :moocs, except: [:show]
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140127044553) do
+ActiveRecord::Schema.define(:version => 20140128022316) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -78,5 +78,18 @@ ActiveRecord::Schema.define(:version => 20140127044553) do
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                        :null => false
+    t.string   "crypted_password",             :null => false
+    t.string   "salt",                         :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
 
 end

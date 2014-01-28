@@ -12,7 +12,7 @@ describe Page do
     expect(page).not_to be_valid
   end
 
-  it 'is invlid without body' do
+  it 'is invalid without body' do
     page.body = nil
     expect(page).not_to be_valid
   end
