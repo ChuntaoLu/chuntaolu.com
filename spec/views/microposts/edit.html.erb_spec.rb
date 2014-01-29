@@ -3,7 +3,8 @@ require 'spec_helper'
 describe "microposts/edit" do
   before(:each) do
     @micropost = assign(:micropost, stub_model(Micropost,
-      :content => "MyText"
+      :content => "MyText",
+      :created_at => 1.day.ago
     ))
   end
 

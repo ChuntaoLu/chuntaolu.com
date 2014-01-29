@@ -29,4 +29,10 @@ module ApplicationHelper
     format = year ? '%b %d %Y' : '%b %d'
     date.strftime(format)
   end
+
+  def title(page_title)
+    content_for(:title) do
+      page_title.blank? ? 'Chuntao Lu' : page_title + ' | Chuntao Lu'
+    end
+  end
 end
