@@ -1,20 +1,20 @@
 - title "Blog"
 %h1 Blog
-%div
+.container
   = link_to 'Articles', articles_path
   |
   = link_to 'Archive', archive_articles_path
-#articles
-  - @articles.each do |article|
-    %h2= link_to article.title, article
-    %p
-      = date_string(article.created_at, true)
-      | Tags: #{raw article.tag_list.map { |t| link_to t, articles_tag_path(t) }.join(', ')}
-    %p= read_more(article)
-    %p
-      - if current_user
-        = link_to "Edit", edit_article_path(article)
-        = link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }
+  #articles
+    - @articles.each do |article|
+      %h2= link_to article.title, article
+      %p
+        = date_string(article.created_at, true)
+        | Tags: #{raw article.tag_list.map { |t| link_to t, articles_tag_path(t) }.join(', ')}
+      %p= read_more(article)
+      %p
+        - if current_user
+          = link_to "Edit", edit_article_path(article)
+          = link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }
 - if current_user
   %p= link_to "New Article", new_article_path
 = paginate @articles
