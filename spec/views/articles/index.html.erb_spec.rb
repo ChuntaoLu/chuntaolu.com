@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "articles/index" do
   before(:each) do
-    assign(:articles, [
+    assign(:articles, Kaminari.paginate_array([
       stub_model(Article,
         :title => "Title",
         :body => "MyText",
@@ -13,7 +13,7 @@ describe "articles/index" do
         :body => "MyText",
         :created_at => 1.week.ago
       )
-    ])
+    ]).page(1))
   end
 
   it "renders a list of articles" do

@@ -35,4 +35,10 @@ module ApplicationHelper
       page_title.blank? ? 'Chuntao Lu' : page_title + ' | Chuntao Lu'
     end
   end
+
+  def read_more(article)
+    output = truncate_html(markdown(article.body), length: 500, omission: '...')
+    output += link_to('Read More>>', article_path(article)) if markdown(article.body).size > 500
+    output.html_safe
+  end
 end

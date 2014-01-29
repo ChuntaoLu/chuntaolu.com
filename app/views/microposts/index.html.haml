@@ -14,3 +14,4 @@
 %br
 - if current_user
   = link_to 'New Micropost', new_micropost_path
+= paginate @microposts

@@ -14,7 +14,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'twitter-bootstrap-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -45,6 +45,12 @@ group :development, :test do
   gem 'pygments.rb'
   gem 'nokogiri'
   gem 'acts-as-taggable-on'
+  gem 'therubyracer'
+  gem 'sprockets-commonjs'
+  gem "less-rails"
+  gem 'truncate_html'
+  gem 'kaminari'
+  gem 'faker'
 end
 
 group :production do
