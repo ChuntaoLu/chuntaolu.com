@@ -36,6 +36,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'launchy'
   gem "haml", "~> 3.1.8"
+  gem 'haml-rails'
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'factory_girl_rails'

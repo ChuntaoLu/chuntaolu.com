@@ -1,1 +1,6 @@
 body { padding-top: 90px; }
+@media (min-width: 1200px) {
+  .container{
+    max-width: 800px;
+  }
+}

@@ -1,7 +1,7 @@
 .glyphicon.glyphicon-chevron-up {
   position: fixed;
-  top: 90%;
-  right: 20px;
+  top: 88%;
+  right: 50px;
   text-decoration: none;
   color: #586E75;
   background-color: #aaa;
@@ -12,6 +12,10 @@
   height: 50px;
   border-radius: 50%;
   display: none; //hide by default
+  @media (max-width: 800px) {
+    right: 5px;
+    top: 92%;
+  }
 }
 
 .glyphicon-chevron-up:hover {
@@ -19,3 +23,4 @@
   color: #859900;
   background-color: #ccc;
 }
+
