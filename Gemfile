@@ -17,6 +17,7 @@ group :assets do
   gem 'bootstrap-sass', '~> 3.0.3.0'
   gem 'compass-rails'
   gem 'uglifier', '>= 1.0.3'
+  gem "font-awesome-rails"
 end
 
 gem 'jquery-rails'

@@ -41,4 +41,8 @@ module ApplicationHelper
     output += link_to('Read More>>', article_path(article)) if markdown(article.body).size > 500
     output.html_safe
   end
+
+  def active?(path)
+    current_page?(path) ? 'active' : ''
+  end
 end
