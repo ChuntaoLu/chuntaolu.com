@@ -1,6 +1,9 @@
 %li.previous
-  -#= link_to_unless current_page.first?, raw(t 'views.pagination.previous'), url, :remote => remote
   - if current_page.first?
-    %span.previous.disabled &larr; Prev
+    %span.disabled
+      = succeed '&nbsp;Prev'.html_safe do
+        %sapn.glyphicon.glyphicon-arrow-left
   - else
     = link_to raw(t 'views.pagination.previous'), url, :remote => remote
+
+-#boostrap has the same css style for '.pager li a' and '.pager li span'

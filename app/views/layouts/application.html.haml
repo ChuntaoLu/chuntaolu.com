@@ -20,24 +20,26 @@
         #bs-navbar-collapse.collapse.navbar-collapse
           %ul.nav.navbar-nav.pull-right
             %li{class: active?(articles_path)}
-              %a{href: articles_path} Blog
+              = link_to "Blog", articles_path
             %li{class: active?(microposts_path)}
-              %a{href: microposts_path} Micropost
+              = link_to "Micropost", microposts_path
             %li{class: active?(moocs_path)}
-              %a{href: moocs_path} Mooc
+              = link_to 'Mooc', moocs_path
             %li{class: active?(page_path('about'))}
-              %a{href: page_path('about')} About
-      -#= link_to 'Home', root_path
-      -#= link_to 'Blog', articles_path
-      -#= link_to 'Microposts', microposts_path
-      -#= link_to 'Moocs', moocs_path
-      -#= link_to 'About', page_path('about')
-    .user_nav
-      - if current_user
-        Logged in as #{current_user.email}.
-        = link_to "Log out", logout_path
-        = link_to "Pages", pages_path
-        = link_to "Users", users_path
+              = link_to 'About', page_path('about')
+            - if current_user
+              %li.dropdown
+                -#%a{href: '/', "data-toggle" => "dropdown"}
+                -#  Admin
+                %a{href: '/'}
+                  Admin
+                %ul.dropdown-menu
+                  %li= link_to "Pages", pages_path
+                  %li= link_to "Users", users_path
+                  %li.divider
+                  %li= link_to "Log out", logout_path
+                  %li.divider
+                  %li= link_to current_user.email
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
     = yield

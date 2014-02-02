@@ -5,6 +5,6 @@ en:
   hello: "Hello world"
   views:
     pagination:
-      previous: "&larr; Prev"
-      next: "Next &rarr;"
+      previous: '<span class="glyphicon glyphicon-arrow-left"></span>&nbsp;Prev'
+      next: 'Next&nbsp;<span class="glyphicon glyphicon-arrow-right"></span>'
       truncate: "&hellip;"

@@ -18,8 +18,8 @@ MyWeb::Application.routes.draw do
   get 'logout', to: "sessions#destroy", as: 'logout'
   resources :sessions, only: [:new, :create, :destroy]
 
-  get 'article-tags/:tag', to: 'articles#index', as: :articles_tag
-  get 'micropost-tags/:tag', to: 'microposts#index', as: :microposts_tag
+  get 'blog-tags/:tag', to: 'articles#index', as: :articles_tag
+  get 'microposts-tags/:tag', to: 'microposts#index', as: :microposts_tag
 
   get 'pages', to: 'pages#index'
   post 'pages', to: 'pages#create'

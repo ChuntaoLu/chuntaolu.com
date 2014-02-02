@@ -43,6 +43,7 @@ module ApplicationHelper
   end
 
   def active?(path)
-    current_page?(path) ? 'active' : ''
+    request.path.start_with?(path) ? 'active' : ''
+    #current_page?(path) ? 'active' : ''
   end
 end
