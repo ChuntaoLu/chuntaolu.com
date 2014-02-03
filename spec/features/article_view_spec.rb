@@ -8,8 +8,8 @@ describe 'the article view', type: :feature do
 
   before { login_user_post('foo', 'bar')}
 
-  let!(:article_1) { FactoryGirl.create(:article, title:'Test 1', tag_list: 'foo') }
-  let!(:article_2) { FactoryGirl.create(:article, title:'Test 2', tag_list: 'foo, bar') }
+  let!(:article_1) { FactoryGirl.create(:article, title:'Test 1', tag_list: 'baz') }
+  let!(:article_2) { FactoryGirl.create(:article, title:'Test 2', tag_list: 'baz, quxx') }
 
   context "on the articles index page" do
 
@@ -82,15 +82,15 @@ describe 'the article view', type: :feature do
       end
 
       it 'shows tagged articles after a tag is clicked' do
-        first(:link, 'foo').click
-        expect(current_path).to eq(articles_tag_path('foo'))
+        first(:link, 'baz').click
+        expect(current_path).to eq(articles_tag_path('baz'))
         expect(page).to have_content(article_1.title)
         expect(page).to have_content(article_2.title)
       end
 
       it 'does not show unrelated article when a tag is clicked' do
-        click_link('bar')
-        expect(current_path).to eq(articles_tag_path('bar'))
+        click_link('quxx')
+        expect(current_path).to eq(articles_tag_path('quxx'))
         expect(page).not_to have_content(article_1.title)
         expect(page).to have_content(article_2.title)
       end

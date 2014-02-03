@@ -8,8 +8,8 @@ describe 'the micropost view', type: :feature do
 
   before { login_user_post('foo', 'bar')}
 
-  let!(:micropost_1) { FactoryGirl.create(:micropost, content: 'first post', tag_list: 'foo') }
-  let!(:micropost_2) { FactoryGirl.create(:micropost, content: 'second post', tag_list: 'foo, bar') }
+  let!(:micropost_1) { FactoryGirl.create(:micropost, content: 'first post', tag_list: 'baz') }
+  let!(:micropost_2) { FactoryGirl.create(:micropost, content: 'second post', tag_list: 'baz, quxx') }
 
   before(:each) do
     visit microposts_path
@@ -73,15 +73,15 @@ describe 'the micropost view', type: :feature do
     end
 
     it 'shows tagged microposts after a tag is clicked' do
-      first(:link, 'foo').click
-      expect(current_path).to eq(microposts_tag_path('foo'))
+      first(:link, 'baz').click
+      expect(current_path).to eq(microposts_tag_path('baz'))
       expect(page).to have_content(micropost_1.content)
       expect(page).to have_content(micropost_2.content)
     end
 
     it 'does not show unrelated micropost when a tag is clicked' do
-      click_link('bar')
-      expect(current_path).to eq(microposts_tag_path('bar'))
+      click_link('quxx')
+      expect(current_path).to eq(microposts_tag_path('quxx'))
       expect(page).not_to have_content(micropost_1.content)
       expect(page).to have_content(micropost_2.content)
     end

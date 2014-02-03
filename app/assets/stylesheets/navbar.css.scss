@@ -1,12 +1,12 @@
 @import "compass";
 nav.navbar {
-  //background-color: #fff;
+  background-color: #fefefe;
   border-top: none;
   border-bottom: none;
   min-height: 60px;
-  a {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
+  a, li a {
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 20px;
     //text-transform: uppercase;
     text-align: center;
@@ -20,19 +20,20 @@ nav.navbar {
         position: absolute;
         bottom: 15px;
         height: 1px;
-        background-color: #aaa;
+        background-color: #586E75;
         width: 50%;
         left: 25%;
       }
     }
   .navbar-brand {
+     margin-top: 3px;
      font-size: 30px;
      //font-family: 'Cabin Sketch', sans-serif;
-     font-family: 'Homenaje', sans-serif;
-     //font-family: Arial, sans-serif;
+     //font-family: 'Homenaje', sans-serif;
+     font-family: Arial, sans-serif;
      //font-weight: bold;
      text-transform: uppercase;
-     //letter-spacing: -1px;
+     letter-spacing: -1px;
      color: #444 !important;
      text-shadow: 0px 2px 1px #999;
      &:hover {
@@ -42,15 +43,27 @@ nav.navbar {
   .navbar-toggle {
     margin: 12px 20px 12px 0;
   }
-  ul.nav li.dropdown:hover ul.dropdown-menu {
+  .btn-sm {
+    margin: 15px auto;
+    padding: 2px 5px !important;
+    font-size: 15px;
+  }
+  .dropdown:hover ul.dropdown-menu {
     display: block;
+    min-width: 80px;
+
+  }
+  .dropdown-menu li a {
+    padding: 5px 10px;
+    font-size: 17px;
+    line-height: 22px;
   }
 }
 
-nav.shrink {
-  background-color: rgba(255, 255, 255, 0.9);
+nav.navbar.shrink {
+  background-color: rgba(255, 255, 255, 1);
   min-height: 35px;
-  a {
+  a, li a {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     font-size: 15px;
@@ -59,12 +72,18 @@ nav.shrink {
     bottom: 7px;
   }
   .navbar-brand {
+    margin-top: 1px;
     font-size: 25px;
     font-weight: normal;
   }
   .navbar-toggle {
     padding: 4px 5px;
     margin: 8px 25px 8px 0;
+  }
+  .btn-sm {
+    margin: 8px auto;
+    padding: 1px 5px !important;
+    font-size: 12px;
   }
 }
 

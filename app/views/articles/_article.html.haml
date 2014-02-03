@@ -1,0 +1,14 @@
+.article
+  %h1= link_to article.title, article
+  .article-info
+    %span.date= date_string(article.created_at, true).html_safe
+    - article.tag_list.map do |tag|
+      %span.tag= link_to tag, articles_tag_path(tag)
+    - if current_user
+      %span.pull-right
+        %button.btn.btn-xs.btn-primary
+          = link_to "Edit", edit_article_path(article)
+        %button.btn.btn-xs.btn-danger
+          = link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }
+    -#%p= read_more(article)
+  .article-body= markdown(article.body)

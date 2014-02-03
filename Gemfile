@@ -53,7 +53,8 @@ group :development, :test do
   gem "less-rails"
   gem 'truncate_html'
   gem 'kaminari'
-  gem 'faker'
+  gem 'faker', '~>1.2.0'
+  gem 'simple_form'
 end
 
 group :production do

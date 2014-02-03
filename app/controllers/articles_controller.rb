@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     if params[:tag]
-      @articles = Article.desc.tagged_with(params[:tag]).page(params[:page]).per(8)
+      @tag = params[:tag]
+      @articles = Article.desc.tagged_with(@tag).page(params[:page]).per(5)
     else
       @articles = Article.desc.page(params[:page]).per(8)
     end

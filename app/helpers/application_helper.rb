@@ -26,7 +26,7 @@ module ApplicationHelper
   end
 
   def date_string(date, year=false)
-    format = year ? '%b %d %Y' : '%b %d'
+    format = year ? '%b %d, %Y' : '%b %d'
     date.strftime(format)
   end
 
@@ -45,5 +45,20 @@ module ApplicationHelper
   def active?(path)
     request.path.start_with?(path) ? 'active' : ''
     #current_page?(path) ? 'active' : ''
+  end
+
+  def bootstrap_class_for flash_type
+    case flash_type
+      when :success
+        "alert-success"
+      when :error
+        "alert-error"
+      when :alert
+        "alert-block"
+      when :notice
+        "alert-info"
+      else
+        flash_type.to_s
+    end
   end
 end

@@ -1,6 +1,5 @@
 - title "Edit article - #{@article.title}"
-%h1 Editing article
-= render 'form'
-= link_to 'Show', @article
-|
-= link_to 'Back', articles_path
+.container
+  %h1 Editing article
+  = render 'form'
+  %button.btn.btn-default= link_to 'Show', @article
