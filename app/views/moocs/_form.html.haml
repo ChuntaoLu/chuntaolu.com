@@ -1,35 +1,8 @@
-= form_for(@mooc) do |f|
-  - if @mooc.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@mooc.errors.count, "error")
-        prohibited this mooc from being saved:
-      %ul
-        - @mooc.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :name
-    %br
-    = f.text_field :name
-  .field
-    = f.label :platform
-    %br
-    = f.text_field :platform
-  .field
-    = f.label :provider
-    %br
-    = f.text_field :provider
-  .field
-    = f.label :course_link
-    %br
-    = f.text_field :course_link
-  .field
-    = f.label :statement_link
-    %br
-    = f.text_field :statement_link
-  .field
-    = f.label :finish_date
-    %br
-    = f.date_select :finish_date
-  .actions
-    = f.submit
+= simple_form_for(@mooc) do |f|
+  = f.input :name
+  = f.input :platform
+  = f.input :provider
+  = f.input :course_link
+  = f.input :statement_link
+  = f.date_select :finish_date
+  = f.submit

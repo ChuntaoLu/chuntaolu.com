@@ -1,0 +1,12 @@
+.micropost
+  .micropost-info.well
+    %span.date= date_string(micropost.created_at, true).html_safe
+    - micropost.tag_list.map do |tag|
+      %span.tag= link_to tag, microposts_tag_path(tag)
+    - if current_user
+      %span.pull-right
+        %button.btn.btn-xs.btn-primary
+          = link_to "Edit", edit_micropost_path(micropost)
+        %button.btn.btn-xs.btn-danger
+          = link_to 'Delete', micropost, method: :delete, data: { confirm: 'Are you sure?' }
+  .micropost-body.well= markdown(micropost.content)

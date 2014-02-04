@@ -1,0 +1,54 @@
+$width: 12px;
+$height: 16px;
+$white-transparent: rgba(255, 255, 255, 0);
+$border-width: 3px;
+$border-color: white;
+
+.navbar-brand.lg {
+  margin-top: 0;
+  padding: 13px 7px 17px 15px;
+}
+.logo {
+  width: 40px;
+  height: 30px;
+  margin: 0 auto;
+  padding: 6px 0 8px 2px;
+  background-color: #474747;
+  border-radius: 5px;
+  .logo-c, .logo-l {
+    display: inline-block;
+    border-radius: 2px;
+    width: $width;
+    height: $height;
+    background-color: $white-transparent;
+    :hover {
+      border-color: deepskyblue;
+      border: solid $border-width deepskyblue;
+    }
+  }
+  .logo-c {
+    border: solid $border-width $border-color;
+    border-right: solid 3px $white-transparent;
+  }
+  .logo-l {
+    border: solid $border-width $border-color;
+    border-right: solid 1px $white-transparent;
+    border-top: solid 1px $white-transparent;
+  }
+}
+
+nav.shrink {
+  .navbar-brand.lg {
+    margin-top: 0;
+    padding: 6px 5px 5px 15px;
+  }
+  .logo {
+    height: 24px;
+    width: 35px;
+    padding: 4px 0 6px 1px;
+    .logo-l, .logo-c {
+      height: 14px;
+      width: 10px;
+    }
+  }
+}

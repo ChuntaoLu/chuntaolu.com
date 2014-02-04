@@ -6,9 +6,14 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      -#%a.navbar-brand{href: root_path}  Chuntao  Lu
-      = link_to "Chuntao Lu", root_path, class: "navbar-brand"
+      .navbar-brand.lg
+        = link_to(root_path) do
+          .logo
+            .logo-c
+            .logo-l
+      -#= link_to "Chuntao Lu", root_path, class: "navbar-brand"
     #bs-navbar-collapse.collapse.navbar-collapse
+      -#%ul.nav.navbar-nav
       %ul.nav.navbar-nav.pull-right
         %li{class: active?(articles_path)}
           = link_to "Blog", articles_path

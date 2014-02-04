@@ -5,9 +5,10 @@ class MicropostsController < ApplicationController
   # GET /microposts.json
   def index
     if params[:tag]
-      @microposts = Micropost.desc.tagged_with(params[:tag]).page(params[:page]).per(20)
+      @tag = params[:tag]
+      @microposts = Micropost.desc.tagged_with(@tag).page(params[:page]).per(10)
     else
-      @microposts = Micropost.desc.page(params[:page]).per(20)
+      @microposts = Micropost.desc.page(params[:page]).per(10)
     end
 
     respond_to do |format|

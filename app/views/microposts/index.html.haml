@@ -1,17 +1,9 @@
 - title "Microposts"
-%h1 Microposts
-#microposts
-- @microposts.each do |micropost|
-  %p
-    = date_string(micropost.created_at)
-    |
-    Tags: #{raw micropost.tag_list.map { |t| link_to t, microposts_tag_path(t) }.join(', ')}
-  = markdown(micropost.content)
-  %p
-    - if current_user
-      = link_to "Edit", edit_micropost_path(micropost)
-      = link_to 'Delete', micropost, method: :delete, data: { confirm: 'Are you sure?' }
-%br
-- if current_user
-  = link_to 'New Micropost', new_micropost_path
-= paginate @microposts
+.container
+  - if @tag
+    .tag= link_to @tag, microposts_tag_path(@tag)
+    %br
+    %br
+  - @microposts.each do |micropost|
+    = render partial: 'microposts/micropost', locals: { micropost: micropost }
+  = paginate @microposts

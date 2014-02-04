@@ -1,6 +1,5 @@
 - title "Edit micropost - #{date_string(@micropost.created_at)}"
-%h1 Editing micropost
-= render 'form'
-= link_to 'Show', @micropost
-|
-= link_to 'Back', microposts_path
+.container
+  %h1 Edit micropost
+  = render 'form'
+  = link_to 'Back', microposts_path

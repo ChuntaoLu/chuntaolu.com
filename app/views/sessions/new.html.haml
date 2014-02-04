@@ -1,13 +1,8 @@
 - title "Log in"
-%h1 Log in
-= form_tag sessions_path do
-  .field
-    = label_tag :email
-    = text_field_tag :email, params[:email]
-  .field
-    = label_tag :password
-    = password_field_tag :password
-  .field
-    = check_box_tag :remember_me, 1, params[:remember_me]
-    = label_tag :remember_me
-  .actions= submit_tag "Log in"
+.container
+  %h1 Log in
+  = simple_form_for :login, { url: sessions_path } do |f|
+    = f.input :email
+    = f.input :password
+    = f.input :remember_me, input_html: { value: '1' }, as: :boolean
+    = f.button :submit, label: 'Log in'

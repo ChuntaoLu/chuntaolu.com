@@ -1,6 +1,7 @@
 - title "Edit mooc - #{@mooc.name}"
-%h1 Editing mooc
-= render 'form'
-= link_to 'Show', @mooc
-|
-= link_to 'Back', moocs_path
+.container
+  %h1 Editing mooc
+  = render 'form'
+  = link_to 'Show', @mooc
+  |
+  = link_to 'Back', moocs_path

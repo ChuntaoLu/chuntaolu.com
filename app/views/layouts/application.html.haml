@@ -7,8 +7,9 @@
     = csrf_meta_tags
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
   %body
-    = render 'layouts/navbar'
-    = render partial: 'layouts/flash_messages', flash: flash
-    = yield
-    %a.glyphicon.glyphicon-chevron-up{href: '#'}
+    #wrap
+      = render 'layouts/navbar'
+      = render partial: 'layouts/flash_messages', flash: flash
+      = yield
+      %a.glyphicon.glyphicon-chevron-up{href: '#'}
     = render 'layouts/footer'

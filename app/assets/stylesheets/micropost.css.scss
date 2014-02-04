@@ -1,0 +1,39 @@
+.micropost {
+  box-shadow: 0px 2px 2px #bbb;
+  .micropost-info {
+    .date {
+      font-family: Arial;
+      font-size: 15px;
+      font-style: italic;
+      margin-right: 10px;
+      color: #888888;
+      position: relative;
+      top: 1px;
+    }
+    button a {
+      font-size: 13px;
+      line-height: 16px;
+      text-decoration: none;
+      color: #dedede;
+    }
+  }
+  .micropost-info.well {
+    background-color: #ffffff;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .micropost-body {
+    margin: 20px 0 20px 0;
+    font-size: 25px;
+  }
+  .micropost-body.well {
+    border-top: none;
+    background-color: rgb(237, 240, 243);
+    border-radius: 0px;
+    margin-top: 0;
+  }
+}
+
+
