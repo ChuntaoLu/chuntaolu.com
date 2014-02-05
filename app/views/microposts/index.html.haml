@@ -1,9 +1,8 @@
 - title "Microposts"
-.container
-  - if @tag
-    .tag= link_to @tag, microposts_tag_path(@tag)
-    %br
-    %br
-  - @microposts.each do |micropost|
-    = render partial: 'microposts/micropost', locals: { micropost: micropost }
-  = paginate @microposts
+- if @tag
+  .tag= link_to @tag, microposts_tag_path(@tag)
+  %br
+  %br
+- @microposts.each do |micropost|
+  = render partial: 'microposts/micropost', locals: { micropost: micropost }
+= paginate @microposts

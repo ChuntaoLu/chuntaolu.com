@@ -1,18 +1,17 @@
 - title "Users Index"
-.container
-  %h1 Users
-  %table.table
+%h1 Users
+%table.table
+  %tr
+    %th Email
+    %th Created at
+    %th Updated at
+    %th
+    %th
+  - @users.each do |user|
     %tr
-      %th Email
-      %th Created at
-      %th Updated at
-      %th
-      %th
-    - @users.each do |user|
-      %tr
-        %td= user.email
-        %td= date_string(user.created_at, true)
-        %td= date_string(user.updated_at, true)
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }
-  = link_to 'New User', new_user_path
+      %td= user.email
+      %td= date_string(user.created_at, true)
+      %td= date_string(user.updated_at, true)
+      %td= link_to 'Edit', edit_user_path(user)
+      %td= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'New User', new_user_path

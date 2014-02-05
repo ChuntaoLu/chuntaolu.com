@@ -1,11 +1,10 @@
 - title "Blog"
-.container
-  - if @tag
-    .tag= link_to @tag, articles_tag_path(@tag)
-  - @articles.each do |article|
-    = render partial: 'articles/article', locals: { article: article }
-  = paginate @articles
-  .text-center
-    = link_to 'Articles', articles_path
-    |
-    = link_to 'Archive', archive_articles_path
+- if @tag
+  .tag= link_to @tag, articles_tag_path(@tag)
+- @articles.each do |article|
+  = render partial: 'articles/article', locals: { article: article }
+= paginate @articles
+.text-center
+  = link_to 'Articles', articles_path
+  |
+  = link_to 'Archive', archive_articles_path

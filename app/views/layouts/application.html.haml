@@ -8,8 +8,9 @@
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
   %body
     #wrap
-      = render 'layouts/navbar'
-      = render partial: 'layouts/flash_messages', flash: flash
-      = yield
+      .container
+        = render 'layouts/navbar'
+        = render partial: 'layouts/flash_messages', flash: flash
+        .middle= yield
       %a.glyphicon.glyphicon-chevron-up{href: '#'}
     = render 'layouts/footer'

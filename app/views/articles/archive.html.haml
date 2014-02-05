@@ -1,10 +1,9 @@
 - title "Blog Archive"
-.container
-  %h2 Archives
-  - @articles_year.each do |date, articles|
-    %h3= date.strftime('%Y')
-    - articles.each do |article|
-      .row.archive
-        .col-md-2.text-right= date_string(article.created_at).html_safe
-        .col-md-10= link_to article.title, article_path(article)
-  = link_to 'Back', articles_path
+%h2 Archives
+- @articles_year.each do |date, articles|
+  %h3= date.strftime('%Y')
+  - articles.each do |article|
+    .row.archive
+      .col-md-2.text-right= date_string(article.created_at).html_safe
+      .col-md-10= link_to article.title, article_path(article)
+= link_to 'Back', articles_path

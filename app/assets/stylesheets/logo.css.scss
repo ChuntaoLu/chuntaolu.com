@@ -7,6 +7,9 @@ $border-color: white;
 .navbar-brand.lg {
   margin-top: 0;
   padding: 13px 7px 17px 15px;
+  a:hover {
+    text-decoration: none;
+  }
 }
 .logo {
   width: 40px;
@@ -14,17 +17,15 @@ $border-color: white;
   margin: 0 auto;
   padding: 6px 0 8px 2px;
   background-color: #474747;
-  border-radius: 5px;
+  border-radius: 4px;
+  border: solid 1px #444;
+  box-shadow: 0px 1px 1px #000;
   .logo-c, .logo-l {
     display: inline-block;
     border-radius: 2px;
     width: $width;
     height: $height;
     background-color: $white-transparent;
-    :hover {
-      border-color: deepskyblue;
-      border: solid $border-width deepskyblue;
-    }
   }
   .logo-c {
     border: solid $border-width $border-color;
@@ -34,6 +35,17 @@ $border-color: white;
     border: solid $border-width $border-color;
     border-right: solid 1px $white-transparent;
     border-top: solid 1px $white-transparent;
+  }
+  &:hover {
+    .logo-c {
+      border: solid $border-width deepskyblue;
+      border-right: solid 3px $white-transparent;
+    }
+    .logo-l {
+      border: solid $border-width deepskyblue;
+      border-right: solid 1px $white-transparent;
+      border-top: solid 1px $white-transparent;
+    }
   }
 }
 
