@@ -26,11 +26,11 @@ describe 'the micropost view', type: :feature do
   end
 
   it 'has link to add new micropost' do
-    expect(page).to have_link('New Micropost', href: new_micropost_path)
+    expect(page).to have_link('New Micro', href: new_micropost_path)
   end
 
   it 'adds new micropost' do
-    page.click_link('New Micropost')
+    page.click_link('New Micro')
     page.fill_in('Content', with: 'View impressively like a lunar sun.')
     page.fill_in('Tags (separated by commas)', with: 'life')
     expect { page.click_button('Create Micropost') }.to change(Micropost, :count).by(1)

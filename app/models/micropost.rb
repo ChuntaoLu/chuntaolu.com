@@ -7,6 +7,6 @@ class Micropost < ActiveRecord::Base
   scope :desc, order('created_at DESC')
 
   def date
-    created_at.strftime '%F'
+    (created_at || Time.now).strftime '%F'
   end
 end

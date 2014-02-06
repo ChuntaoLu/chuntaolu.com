@@ -1,2 +1,5 @@
 - title "Blog- #{@article.title}"
 = render partial: 'articles/article', locals: { article: @article }
+.back
+  = link_to articles_path do
+    = fa_icon 'long-arrow-left', text: "Back"

@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :require_login, except: [:index, :show, :archive]
+  before_filter :require_login, except: [:index, :show, :archives]
 
   # GET /articles
   # GET /articles.json
@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def archive
+  def archives
     @articles_year = Article.desc.group_by { |t| t.created_at.beginning_of_year }
   end
 

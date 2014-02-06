@@ -1,16 +1,16 @@
-%link{:href => "http://fonts.googleapis.com/css?family=Cabin+Sketch|Homenaje", :rel => "stylesheet", :type => "text/css"}
 %html
   %head
     %title= yield(:title) || "Chunto LU"
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    = favicon_link_tag 'favicon.ico'
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
   %body
     #wrap
       .container
         = render 'layouts/navbar'
         = render partial: 'layouts/flash_messages', flash: flash
-        .middle= yield
-      %a.glyphicon.glyphicon-chevron-up{href: '#'}
+        = yield
+      -#%a.glyphicon.glyphicon-chevron-up{href: '#'}
     = render 'layouts/footer'

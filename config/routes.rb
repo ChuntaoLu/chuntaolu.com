@@ -10,7 +10,7 @@ MyWeb::Application.routes.draw do
 
   resources :articles, path: 'blog' do
     collection do
-      get 'archive'
+      get 'archives'
     end
   end
 

@@ -30,7 +30,7 @@ describe MicropostsController do
   # Micropost. As you add validations to Micropost, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { content: 'The scholar has moonlight.', tag_list: 'Fiction'}
+    { content: 'The scholar has moonlight.', tag_list: 'Fiction' }
   end
 
   # This should return the minimal set of values that should be in the session

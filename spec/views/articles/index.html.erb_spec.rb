@@ -19,7 +19,7 @@ describe "articles/index" do
   it "renders a list of articles" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "h2", :text => "Title".to_s, :count => 2
+    assert_select "h1", :text => "Title".to_s, :count => 2
     assert_select "p", :text => "MyText".to_s, :count => 2
   end
 end

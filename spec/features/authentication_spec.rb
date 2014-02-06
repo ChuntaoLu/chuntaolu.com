@@ -9,9 +9,9 @@ describe 'the application', type: :feature do
     #  visit root_path
     #end
 
-    it 'can access articles index, show and archive' do
+    it 'can access articles index, show and archives' do
       Article.create!(title: 'Foo', body: 'Bar', tag_list: 'baz')
-      [articles_path, article_path('foo'), archive_articles_path].each do |path|
+      [articles_path, article_path('foo'), archives_articles_path].each do |path|
         visit path
         expect(current_path).to eq(path)
       end

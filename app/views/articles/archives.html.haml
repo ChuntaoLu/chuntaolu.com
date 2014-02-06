@@ -6,4 +6,4 @@
     .row.archive
       .col-md-2.text-right= date_string(article.created_at).html_safe
       .col-md-10= link_to article.title, article_path(article)
-= link_to 'Back', articles_path
+%br

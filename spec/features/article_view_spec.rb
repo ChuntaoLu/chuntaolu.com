@@ -96,19 +96,20 @@ describe 'the article view', type: :feature do
       end
     end
 
-    describe "archive" do
+    describe "archives" do
       before(:each) do
         article_1.created_at = 1.year.ago
         article_1.save
       end
 
       it 'has a link to archives' do
-        expect(page).to have_link('Archive', href: archive_articles_path)
+        archives_link = page.find('.archives')
+        expect(archives_link[:href]).to eq(archives_articles_path)
       end
 
-      it 'shows archive articles grouped by year' do
-        page.click_link('Archive')
-        expect(current_path).to eq(archive_articles_path)
+      it 'shows archives articles grouped by year' do
+        page.find('.archives').click
+        expect(current_path).to eq(archives_articles_path)
         [article_1, article_2].each do |article|
           expect(page).to have_content(article.created_at.year)
           expect(page).to have_content(date_string(article.created_at))

@@ -30,8 +30,8 @@
             %ul.dropdown-menu
               %li= link_to "Pages", pages_path
               %li= link_to "Users", users_path
-              %li= link_to "new article", new_article_path
-              %li= link_to "new micro", new_micropost_path
+              %li= link_to "New Article", new_article_path, id: 'new_article'
+              %li= link_to "New Micro", new_micropost_path, id: 'new_micro'
               %li.divider
               %li= link_to "Log out", logout_path
     .navbar-shadow

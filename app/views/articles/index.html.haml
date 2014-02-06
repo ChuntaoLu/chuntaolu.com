@@ -5,6 +5,5 @@
   = render partial: 'articles/article', locals: { article: article }
 = paginate @articles
 .text-center
-  = link_to 'Articles', articles_path
-  |
-  = link_to 'Archive', archive_articles_path
+  = link_to(archives_articles_path, class: 'archives') do
+    %i.fa.fa-archive.fa-2x{'data-toggle' => 'tooltip', 'title' => 'ARCHIVES'}
