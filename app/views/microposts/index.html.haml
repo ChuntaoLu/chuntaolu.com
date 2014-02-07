@@ -1,8 +1,8 @@
 - title "Microposts"
 - if @tag
   .tag= link_to @tag, microposts_tag_path(@tag)
-  %br
-  %br
+.til-title Today I learned
+.til-sub little bits of gold I picked up here and there everyday ...
 - @microposts.each do |micropost|
   = render partial: 'microposts/micropost', locals: { micropost: micropost }
 = paginate @microposts

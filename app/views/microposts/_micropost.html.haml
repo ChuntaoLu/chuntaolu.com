@@ -1,6 +1,5 @@
 .micropost
   .micropost-info.well
-    -#= fa_icon 'dot-circle-o'
     %span.date= date_string(micropost.created_at, true).html_safe
     - micropost.tag_list.map do |tag|
       %span.tag= link_to tag, microposts_tag_path(tag)

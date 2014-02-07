@@ -1,5 +1,7 @@
 - title "Blog- #{@article.title}"
 = render partial: 'articles/article', locals: { article: @article }
+#disqus_thread
+  = javascript_include_tag 'disqus'
 .back
   = link_to articles_path do
     = fa_icon 'long-arrow-left', text: "Back"

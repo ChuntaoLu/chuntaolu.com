@@ -4,6 +4,8 @@
     %span.date= date_string(article.created_at, true).html_safe
     - article.tag_list.map do |tag|
       %span.tag= link_to tag, articles_tag_path(tag)
+    %sapn.comment-count
+      = link_to 'Comments', article_path(article) + '#disqus_thread'
     - if current_user
       %span.pull-right
         %button.btn.btn-xs.btn-primary

@@ -1,9 +1,22 @@
+.til-title {
+  font-size: 36px;
+  color: #333;
+}
+.til-sub {
+  font-style: italic;
+  font-size: 18px;
+  color: #999;
+  padding-left: 5px;
+  margin-bottom: 40px;
+}
 .micropost {
+  border-radius: 0;
+  border-left: solid 2px #586E75;
   .micropost-info {
     border: none;
     .date {
       font-family: Arial;
-      font-size: 15px;
+      font-size: 14px;
       font-style: italic;
       margin-right: 10px;
       color: #888888;
@@ -21,8 +34,8 @@
     background-color: #ffffff;
     border: none;
     margin-bottom: 0;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 0px;
+    padding-bottom: 3px;
     box-shadow: none;
   }
   .micropost-body {
@@ -32,12 +45,11 @@
   .micropost-body.well {
     box-shadow: 0px 0px 1px -1px #bbb;
     border-top: none;
-    //background-color: rgb(237, 240, 243);
-    background-color: #eee;
-    border-radius: 0px;
-    margin-top: 2px;
-    margin-bottom: 40px;
-    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 2px;
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding: 5px 20px 0;
     border: none;
     p {
       margin-bottom: 0;
