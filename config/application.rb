@@ -73,6 +73,13 @@ module MyWeb
       g.stylesheets false
       g.scaffold_controller "scaffold_controller"
     end
-
+    # todo
+    config.middleware.use Rack::GoogleAnalytics, tracker: ENV["GOOGLE_ANALYTICS_ID"]
   end
+end
+
+def create_admin
+    User.create!(email: ENV["EMAIL"],
+                 password: ENV["PASSWORD"],
+                 password_confirmation: ENV["PASSWORD"])
 end
