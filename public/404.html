@@ -2,25 +2,58 @@
 <html>
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
+  <link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
+    body {
+      background-color: #111111;
     }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
+
+    .board {
+      height: 150px;
+      width: 400px;
+      margin: 10% auto;
+      padding: 20px;
+      font: 75px/75px Monoton, cursive;
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px DarkRed;
+      color: red;
+    }
+
+
+    #error {
+      color: #fff;
+      text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
+    }
+  </style>;
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src='novacancy.js'></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#error').novacancy({
+        'reblinkProbability': 0.1,
+        'blinkMin': 0.2,
+        'blinkMax': 0.6,
+        'loopMin': 8,
+        'loopMax': 10,
+        'color': '#ffffff',
+        'glow': ['0 0 80px #ffffff', '0 0 30px #008000', '0 0 6px #0000ff']
+      });
+      return $('#code').novacancy({
+        'blink': 1,
+        'off': 1,
+        'color': 'Red',
+        'glow': ['0 0 80px Red', '0 0 30px FireBrick', '0 0 6px DarkRed']
+      });
+    });
+  </script>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
+  <div class="board">
+    <p id='error'>error</p>
+    <p id='code'>404</p>
   </div>
 </body>
 </html>

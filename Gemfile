@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
 gem 'rails', '3.2.15'
 
 # Bundle edge Rails instead:
@@ -55,10 +56,12 @@ group :development, :test do
   gem 'kaminari'
   gem 'faker', '~>1.2.0'
   gem 'simple_form'
+  gem 'unicorn'
 end
 
 group :production do
   gem 'pg'
+  gem 'unicorn'
 end
 
 # To use ActiveModel has_secure_password
