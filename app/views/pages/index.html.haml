@@ -1,4 +1,4 @@
-- title "Pages Index"
+- title "Pages"
 %h1 Pages
 %table.table
   %tr
@@ -7,14 +7,11 @@
     %th Updated at
     %th
     %th
-    %th
   - @pages.each do |page|
     %tr
-      %td= page.name
+      %td= link_to page.name, page
       %td= date_string(page.created_at, true)
       %td= date_string(page.updated_at, true)
-      %td= link_to 'Show', page
       %td= link_to 'Edit', edit_page_path(page)
       %td= link_to 'Delete', page, method: :delete, data: { confirm: 'Are you sure?' }
-%br
-= link_to 'New Page', new_page_path
+%button.btn.btn-md.btn-primary= link_to 'New Page', new_page_path

@@ -1,14 +1,20 @@
 - title "Moocs"
+.container.mooc-quote
+  %span.quote-icon= fa_icon 'quote-left 2x'
+  %span.quote
+    Self-education is, I firmly believe, the only kind of education there is.
+    %span.quote-footer.text-right – Isaac Asimov
+- if current_user
+  %button.btn.btn-md.btn-primary
+    = link_to 'New Mooc', new_mooc_path
 - @moocs.each do |platform, mooc_group|
   %h2= platform
   - mooc_group.each do |mooc|
     .row.mooc
       .col-md-2.text-right= date_string(mooc.finish_date, true).html_safe
       .col-md-7= link_to mooc.name, mooc.course_link
-      .col-md-1.text-left= link_to 'Statement', '#'
+      .col-md-1.text-left= link_to 'Statement', mooc.statement_link
       - if current_user
-        .col-md-1.text-right= link_to 'Edit', edit_mooc_path(mooc)
-        .col-md-1.text-left= link_to 'Delete', mooc, method: :delete, data: { confirm: 'Are you sure?' }
-%br
-- if current_user
-  = link_to 'New Mooc', new_mooc_path
+        .col-md-2.pull-right
+          %button.btn.btn-sm.btn-primary= link_to 'Edit', edit_mooc_path(mooc)
+          %button.btn.btn-sm.btn-danger= link_to 'Delete', mooc, method: :delete, data: { confirm: 'Are you sure?' }

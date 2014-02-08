@@ -6,7 +6,7 @@ MyWeb::Application.routes.draw do
 
   resources :moocs, except: [:show]
 
-  resources :microposts, except: [:show]
+  resources :microposts, except: [:show], path: 'til'
 
   resources :articles, path: 'blog' do
     collection do
@@ -19,7 +19,7 @@ MyWeb::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   get 'blog-tags/:tag', to: 'articles#index', as: :articles_tag
-  get 'microposts-tags/:tag', to: 'microposts#index', as: :microposts_tag
+  get 'til-tags/:tag', to: 'microposts#index', as: :microposts_tag
 
   get 'pages', to: 'pages#index'
   post 'pages', to: 'pages#create'

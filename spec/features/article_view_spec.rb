@@ -34,11 +34,11 @@ describe 'the article view', type: :feature do
     end
 
     it 'has link to add new article' do
-      expect(page).to have_link('New Article', href: new_article_path)
+      expect(page).to have_link('New Post', href: new_article_path)
     end
 
     it 'adds new article' do
-      page.click_link('New Article')
+      page.click_link('New Post')
       page.fill_in('Title', with: 'Lorem ipsum')
       page.fill_in('Body', with: 'View impressively like a lunar sun.')
       page.fill_in('Tags (separated by commas)', with: 'life')

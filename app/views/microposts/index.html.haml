@@ -1,8 +1,10 @@
 - title "Microposts"
-- if @tag
-  .tag= link_to @tag, microposts_tag_path(@tag)
-.til-title Today I learned
-.til-sub little bits of gold I picked up here and there everyday ...
+.til-title
+  %span.til-head= link_to 'Today I learned', microposts_path
+  - if @tag
+    %span.tag-intro tagged with
+    %sapn.tag= link_to @tag, microposts_tag_path(@tag)
+.til-sub little bits of gold I picked up here and there everyday
 - @microposts.each do |micropost|
   = render partial: 'microposts/micropost', locals: { micropost: micropost }
 = paginate @microposts

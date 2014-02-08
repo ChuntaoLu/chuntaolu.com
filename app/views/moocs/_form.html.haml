@@ -4,5 +4,7 @@
   = f.input :provider
   = f.input :course_link
   = f.input :statement_link
-  = f.date_select :finish_date
+  .form-group
+    %label.string.optional.control-label Finish date:
+    = f.date_select :finish_date
   = f.submit

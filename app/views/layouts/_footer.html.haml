@@ -1,15 +1,15 @@
 #footer
   .container
     .icons
-      = link_to '' do
+      = link_to t('footer_links.github_url'), target: '_blank' do
         = fa_icon "github-square 2x"
-      = link_to '' do
+      = link_to t('footer_links.linkedin_url'), target: '_blank'  do
         = fa_icon "linkedin-square 2x"
-      = link_to '' do
+      = link_to t('footer_links.twitter_url'), target: '_blank'  do
         = fa_icon "twitter-square 2x"
     %p.text-muted
       %span= '&copy;&nbsp;2014, Chuntao Lu'.html_safe
     %p.text-muted
-      %span= "Powered by #{link_to 'Ruby on Rails', 'http://rubyonrails.org', target: '_balnk'}".html_safe
+      %span= "Powered by #{link_to 'Ruby on Rails', t('footer_links.ror_url'), target: '_balnk'}".html_safe
       |
-      %span= "Hosted on #{link_to 'Heroku', 'http://www.heroku.com', target: '_blank'}".html_safe
+      %span= "Hosted on #{link_to 'Heroku', t('footer_links.heroku_url'), target: '_blank'}".html_safe

@@ -1,13 +1,27 @@
 .til-title {
+  position: relative;
+  top: -9px;
   font-size: 36px;
   color: #333;
+  .til-head {
+    position: relative;
+    bottom: -4px;
+    a {
+      text-decoration: none;
+      color: lightslategrey;
+      &:hover {
+        color: steelblue;
+      }
+    }
+  }
 }
 .til-sub {
   font-style: italic;
   font-size: 18px;
   color: #999;
   padding-left: 5px;
-  margin-bottom: 40px;
+  margin-top: -9px;
+  margin-bottom: 30px;
 }
 .micropost {
   border-radius: 0;

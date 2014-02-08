@@ -89,6 +89,12 @@ $tag-background: #ddd;
   }
 }
 
+.tag-intro {
+  position: relative;
+  bottom: -3px;
+  font-size: 20px;
+  color: #5cb85c;
+}
 .back a {
   font-size: 18px;
   text-decoration: none;

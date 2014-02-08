@@ -5,9 +5,6 @@ require 'capybara/rails'
 describe 'the application', type: :feature do
 
   context 'when logged out' do
-    #before(:each) do
-    #  visit root_path
-    #end
 
     it 'can access articles index, show and archives' do
       Article.create!(title: 'Foo', body: 'Bar', tag_list: 'baz')

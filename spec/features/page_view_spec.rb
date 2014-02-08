@@ -43,10 +43,10 @@ describe 'the page view', type: :feature  do
 
     it 'edits an page' do
       first(:link, 'Edit').click
-      page.fill_in('Name', with: 'NewName')
+      page.fill_in('Body', with: 'some new content')
       page.click_button('Update Page')
-      expect(page).to have_content('NewName')
-      expect(page).not_to have_content('Test 1')
+      expect(page).to have_content('some new content')
+      expect(page).not_to have_content('MyText')
     end
 
     it 'has link to delete an page' do
@@ -70,7 +70,7 @@ describe 'the page view', type: :feature  do
 
     # actions of 'edit' and 'delete' already tested on index page
     it 'has a link back to pages' do
-      expect(page).to have_link('Back', href: pages_path)
+      expect(page).to have_link('Back to pages', href: pages_path)
     end
 
     it 'has link to edit the page' do

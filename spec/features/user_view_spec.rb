@@ -28,8 +28,8 @@ describe 'the user view', type: :feature  do
     it 'adds new user' do
       page.click_link('New User')
       page.fill_in('Email', with: 'c@x.com')
-      page.fill_in('Password', with: 'baz')
-      page.fill_in('Password confirmation', with: 'baz')
+      page.fill_in('Password', with: 'baz', match: :prefer_exact)
+      page.fill_in('Password confirmation', with: 'baz', match: :prefer_exact)
       expect { page.click_button('Create User') }.to change(User, :count).by(1)
     end
 
