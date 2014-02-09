@@ -1,1 +1,0 @@
-(function(){var t;t="chuntaolu",function(){var e;e=document.createElement("script"),e.type="text/javascript",e.async=!0,e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()}).call(this);

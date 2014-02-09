@@ -5,7 +5,7 @@
     - article.tag_list.map do |tag|
       %span.tag= link_to tag, articles_tag_path(tag)
     %sapn.comment-count
-      = link_to 'Comments', article_path(article) + '#disqus_thread'
+      = link_to 'Comments', article_url(article, anchor: 'disqus_thread')
     - if current_user
       %span.pull-right
         %button.btn.btn-xs.btn-primary

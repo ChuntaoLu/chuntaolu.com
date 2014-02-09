@@ -1,14 +1,10 @@
 ---
 favicon.ico: favicon-643a7706a58754c97ac0a1efcfe22805.ico
 favicon/index.ico: favicon-643a7706a58754c97ac0a1efcfe22805.ico
-application.js: application-6b4e1bac36df2a05707d59c4eb480bb4.js
-application/index.js: application-6b4e1bac36df2a05707d59c4eb480bb4.js
-disqus.js: disqus-cdc548888cddf31546c2ff8575cd969c.js
-disqus/index.js: disqus-cdc548888cddf31546c2ff8575cd969c.js
-disqus_count.js: disqus_count-93a3a3dcc508c5e09d489d2abcd8b914.js
-disqus_count/index.js: disqus_count-93a3a3dcc508c5e09d489d2abcd8b914.js
-application.css: application-c898204a83321d878d2eeb3685e2fa6f.css
-application/index.css: application-c898204a83321d878d2eeb3685e2fa6f.css
+application.js: application-dc7c177ef1a31f4380dfd88ba311553d.js
+application/index.js: application-dc7c177ef1a31f4380dfd88ba311553d.js
+application.css: application-0d042263d08f0a63c51846c2de82aec3.css
+application/index.css: application-0d042263d08f0a63c51846c2de82aec3.css
 bootstrap/glyphicons-halflings-regular.eot: bootstrap/glyphicons-halflings-regular-e76f5a754ccf64843a118a8706df3f8c.eot
 bootstrap/glyphicons-halflings-regular/index.eot: bootstrap/glyphicons-halflings-regular-e76f5a754ccf64843a118a8706df3f8c.eot
 bootstrap/glyphicons-halflings-regular.svg: bootstrap/glyphicons-halflings-regular-8a0a941aafb8c48e709ca72675344c92.svg
