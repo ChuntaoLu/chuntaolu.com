@@ -75,6 +75,7 @@ module MyWeb
     end
     # todo
     config.middleware.use Rack::GoogleAnalytics, tracker: ENV["GOOGLE_ANALYTICS_ID"]
+    config.assets.initialize_on_precompile = false
   end
 end
 
