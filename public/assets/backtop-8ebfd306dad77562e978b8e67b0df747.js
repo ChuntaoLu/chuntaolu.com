@@ -1,0 +1,1 @@
+(function(){$(document).ready(function(){var t,e;return e=150,t=500,$(window).scroll(function(){return $(this).scrollTop()>e?$(".glyphicon-chevron-up").fadeIn(t):$(".glyphicon-chevron-up").fadeOut(t)}),$(".glyphicon-chevron-up").click(function(e){return e.preventDefault(),$("html, body").animate({scrollTop:0},t),!1})})}).call(this);

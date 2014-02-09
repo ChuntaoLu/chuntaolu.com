@@ -19,6 +19,8 @@ gem 'acts-as-taggable-on'
 gem "haml", "~> 3.1.8"
 gem 'haml-rails'
 gem 'hpricot'
+gem "font-awesome-rails"
+gem 'therubyracer'
  # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -28,13 +30,13 @@ gem 'hpricot'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem "less-rails"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
   gem 'bootstrap-sass', '~> 3.0.3.0'
   gem 'compass-rails'
   gem 'uglifier', '>= 1.0.3'
-  gem "font-awesome-rails"
 end
 
 group :development, :test do
@@ -52,9 +54,7 @@ group :development, :test do
   gem 'launchy'
   gem 'ruby_parser'
   gem 'factory_girl_rails'
-  gem 'therubyracer'
   gem 'sprockets-commonjs'
-  gem "less-rails"
   gem 'faker', '~>1.2.0'
 end
 

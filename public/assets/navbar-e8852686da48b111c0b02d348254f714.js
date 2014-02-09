@@ -1,0 +1,1 @@
+(function(){$(window).on("scroll",function(){return $(document).scrollTop()>100?$(".navbar-fixed-top").addClass("shrink"):$(".navbar-fixed-top").removeClass("shrink")})}).call(this);
