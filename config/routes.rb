@@ -1,18 +1,19 @@
 MyWeb::Application.routes.draw do
 
-  root to: "pages#home"
-
-  resources :users, except: [:show]
-
-  resources :moocs, except: [:show]
-
-  resources :microposts, except: [:show], path: 'til'
+  post 'blog', to: 'articles#create'
+  root to: "articles#index", path: 'blog'
 
   resources :articles, path: 'blog' do
     collection do
       get 'archives'
     end
   end
+
+  resources :users, except: [:show]
+
+  resources :moocs, except: [:show]
+
+  resources :microposts, except: [:show], path: 'til'
 
   get 'login', to: "sessions#new", as: 'login'
   get 'logout', to: "sessions#destroy", as: 'logout'

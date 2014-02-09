@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
-  before_filter :require_login, except: [:show, :home]
+  before_filter :require_login, except: [:show]
 
-  def home
-  end
   # GET /pages
   # GET /pages.json
   def index

@@ -35,7 +35,7 @@ describe 'the application', type: :feature do
     it 'can not view users index and pages' do
       [users_path, pages_path].each do |path|
         visit path
-        expect(current_path).to eq('/')
+        expect(current_path).to eq(root_path)
       end
     end
 
@@ -43,7 +43,7 @@ describe 'the application', type: :feature do
       [new_article_path, new_micropost_path, new_mooc_path,
        new_page_path, new_user_path].each do |path|
         visit path
-        expect(current_path).to eq('/')
+        expect(current_path).to eq(root_path)
       end
     end
   end
