@@ -5,6 +5,7 @@ gem 'rails', '3.2.15'
 gem 'newrelic_rpm'
 gem 'rack-google-analytics'
 gem "figaro"
+gem 'unicorn'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -59,12 +60,10 @@ group :development, :test do
   gem 'kaminari'
   gem 'faker', '~>1.2.0'
   gem 'simple_form'
-  gem 'unicorn'
 end
 
 group :production do
   gem 'pg'
-  gem 'unicorn'
   gem 'rails_12factor'
 end
 
