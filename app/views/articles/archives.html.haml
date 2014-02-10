@@ -5,5 +5,9 @@
   - articles.each do |article|
     .row.archive
       .col-md-2.text-right= date_string(article.created_at).html_safe
-      .col-md-10= link_to article.title, article_path(article)
+      .col-md-8= link_to article.title, article_path(article)
+      - if current_user
+        .col-md-2.pull-right
+          %button.btn.btn-sm.btn-primary= link_to 'Edit', edit_article_path(article)
+          %button.btn.btn-sm.btn-danger= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }
 %br
