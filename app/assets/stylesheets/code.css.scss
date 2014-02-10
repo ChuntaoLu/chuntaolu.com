@@ -1,4 +1,4 @@
-pre {
+.highlight pre {
     display: block;
     padding: 0px;
     margin: 0 0 10px;
@@ -12,7 +12,7 @@ pre {
     border-radius: 3px;
     counter-reset: line-numbering;
 }
-pre a:before {
+.highlight pre a:before {
     font-size: 1em;
     color: #fff;
     counter-increment: line-numbering;
@@ -31,15 +31,15 @@ pre a:before {
     -ms-user-select: none;
     user-select: none;
 }
-pre a:first-of-type::before {
+.highlight pre a:first-of-type::before {
   padding-top: 4px;
 }
 
-pre a:last-of-type::before {
+.highlight pre a:last-of-type::before {
   padding-bottom: 4px;
 }
 
-pre a:only-of-type::before {
+.highlight pre a:only-of-type::before {
   padding: 4px;
 }
 
