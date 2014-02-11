@@ -1,12 +1,14 @@
 - title "Moocs"
-.container.mooc-quote
+.mooc-quote
   %span.quote-icon= fa_icon 'quote-left 2x'
   %span.quote
     Self-education is, I firmly believe, the only kind of education there is.
     %span.quote-footer.text-right – Isaac Asimov
-- if current_user
-  %button.btn.btn-md.btn-primary
-    = link_to 'New Mooc', new_mooc_path
+%p.mooc-intro
+  The idea of MOOC(Massive Open Online Course) is absolutely awesome, I feel
+  more comfortable and productive taking MOOCs than traditional courses.
+  Participating in MOOCs is now one of my favorite online activities.
+  Below is a list of MOOCs I finished in my spare time.
 - @moocs.each do |platform, mooc_group|
   %h2= platform
   - mooc_group.each do |mooc|
@@ -18,3 +20,6 @@
         .col-md-2.pull-right
           %button.btn.btn-sm.btn-primary= link_to 'Edit', edit_mooc_path(mooc)
           %button.btn.btn-sm.btn-danger= link_to 'Delete', mooc, method: :delete, data: { confirm: 'Are you sure?' }
+- if current_user
+  %button.btn.btn-md.btn-primary
+    = link_to 'New Mooc', new_mooc_path

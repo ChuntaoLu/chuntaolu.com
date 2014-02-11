@@ -4,7 +4,7 @@ class MoocsController < ApplicationController
   # GET /moocs
   # GET /moocs.json
   def index
-    @moocs = Mooc.all.group_by { |m| m.platform }
+    @moocs = Mooc.all.sort_by(&:finish_date).group_by { |m| m.platform }
 
     respond_to do |format|
       format.html # index.html.erb
