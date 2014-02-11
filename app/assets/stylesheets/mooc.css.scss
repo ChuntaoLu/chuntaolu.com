@@ -6,13 +6,13 @@
   .quote-icon {
     display: inline-block;
     vertical-align: top;
-    padding-top: 8px;
+    padding-top: 4px;
     color: darkslateblue;
   }
   .quote {
     display: inline-block;
     margin-left: 6px;
-    width: 700px;
+    max-width: 700px;
     padding-right: -20px;
     font-size: 28px;
     color: darkslateblue;

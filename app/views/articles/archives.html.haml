@@ -4,7 +4,7 @@
   %h3= date.strftime('%Y')
   - articles.each do |article|
     .row.archive
-      .col-md-2.text-right= date_string(article.created_at).html_safe
+      .col-md-2= date_string(article.created_at).html_safe
       .col-md-8= link_to article.title, article_path(article)
       - if current_user
         .col-md-2.pull-right

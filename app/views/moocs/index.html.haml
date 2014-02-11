@@ -13,9 +13,9 @@
   %h2= platform
   - mooc_group.each do |mooc|
     .row.mooc
-      .col-md-2.text-right= date_string(mooc.finish_date, true).html_safe
+      .col-md-2= date_string(mooc.finish_date, true).html_safe
       .col-md-7= link_to mooc.name, mooc.course_link
-      .col-md-1.text-left= link_to 'Statement', mooc.statement_link
+      .col-md-1= link_to 'Statement', mooc.statement_link
       - if current_user
         .col-md-2.pull-right
           %button.btn.btn-sm.btn-primary= link_to 'Edit', edit_mooc_path(mooc)
