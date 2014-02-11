@@ -12,7 +12,7 @@
     border-radius: 3px;
     counter-reset: line-numbering;
 }
-.highlight pre a:before {
+.highlight pre > span:before {
     font-size: 1em;
     color: #fff;
     counter-increment: line-numbering;
@@ -22,7 +22,7 @@
     text-align: right;
     width: 35px;
     padding-right: 8px;
-    margin-right: 1px;
+    margin-right: 2px;
     border-right: 1px solid #555;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -31,15 +31,15 @@
     -ms-user-select: none;
     user-select: none;
 }
-.highlight pre a:first-of-type::before {
+.highlight pre > span:first-of-type::before {
   padding-top: 4px;
 }
 
-.highlight pre a:last-of-type::before {
+.highlight pre > span:last-of-type::before {
   padding-bottom: 4px;
 }
 
-.highlight pre a:only-of-type::before {
+.highlight pre > span:only-of-type::before {
   padding: 4px;
 }
 

@@ -14,15 +14,16 @@ def import_wordpress
     created_date = Time.parse(item.at_xpath('pubDate').text)
     tag = item.xpath('category[@domain="category"]').attr('nicename').text
     content = item.xpath('content:encoded').text
-    content.gsub!(/\n/, '<br>')
-    content.gsub!(/\[code[^\[]*\]/, '<pre>')
-    content.gsub!(/\[\/code\]/, '</pre>')
+    content.gsub!(/\[code[^\]]*\]/, "\n```python")
+    content.gsub!(/\[\/code\]/, '```')
     content.gsub!(/\$Latex ([^\$]*)\$/, '\1')
+    content.gsub!(/\s*<li>/, '<li>')
     content.gsub!(/\t/, '    ')
     content.gsub!(/<!--more-->/, '')
     content.gsub!(/&quot;/, '"')
-    content.gsub!(/(<br>)+/, '<br>')
-    content.gsub!(/><br>/, '>')
+    content.gsub!(/<\/ol>\n/, '</ol>')
+    content.gsub!(/<\/ul>\n/, '</ul>')
+    content.gsub!(/<\/li>\n/, '</li>')
     article = Article.create(title: title, body: content, tag_list: tag)
     article.created_at = created_date
     article.updated_at = created_date
