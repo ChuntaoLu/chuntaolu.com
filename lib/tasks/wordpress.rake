@@ -24,9 +24,15 @@ def import_wordpress
     content.gsub!(/<\/ol>\n/, '</ol>')
     content.gsub!(/<\/ul>\n/, '</ul>')
     content.gsub!(/<\/li>\n/, '</li>')
+    old_article = Article.find_by_title(title)
+    if old_article
+      FriendlyId::Slug.delete(old_article)
+      old_article.destroy
+    end
     article = Article.create(title: title, body: content, tag_list: tag)
     article.created_at = created_date
     article.updated_at = created_date
+
     article.save!
   end
   f.close()
