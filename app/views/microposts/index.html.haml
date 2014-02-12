@@ -2,7 +2,7 @@
 .til-title
   %span.til-head= link_to 'Today I learned', microposts_path
   - if @tag
-    %span.tag-intro tagged with
+    %span.tag-intro= "#{@microposts.count} tagged with"
     %sapn.tag= link_to @tag, microposts_tag_path(@tag)
 .til-sub little bits of gold I picked up here and there everyday
 - @microposts.each do |micropost|

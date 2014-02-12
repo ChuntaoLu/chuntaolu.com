@@ -1,6 +1,6 @@
 - title "Blog"
 - if @tag
-  %span.tag-intro Posts tagged with
+  %span.tag-intro= "#{@articles.count} posts tagged with"
   %span.tag= link_to @tag, articles_tag_path(@tag)
 - @articles.each do |article|
   = render partial: 'articles/article', locals: { article: article }

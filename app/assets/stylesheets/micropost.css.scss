@@ -4,6 +4,8 @@
   color: #333;
   .til-head {
     a {
+      position: relative;
+      bottom: -3px;
       text-decoration: none;
       color: lightslategrey;
       &:hover {
@@ -17,7 +19,7 @@
   font-size: 18px;
   color: #999;
   padding-left: 5px;
-  margin-top: -5px;
+  margin-top: -1px;
   margin-bottom: 35px;
 }
 .micropost {
