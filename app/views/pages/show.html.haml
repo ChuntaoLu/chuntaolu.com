@@ -1,8 +1,7 @@
 - title "#{@page.name}"
 = markdown(@page.body)
 - if current_user
-  %button.btn.btn-sm.btn-primary
-    = link_to 'Edit', edit_page_path(@page)
+  = link_to 'Edit', edit_page_path(@page), class: 'btn btn-sm btn-primary'
   .back
     = link_to pages_path do
       = fa_icon 'long-arrow-left', text: "Back to pages"

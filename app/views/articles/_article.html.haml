@@ -8,9 +8,8 @@
       = link_to 'Comments', article_url(article, anchor: 'disqus_thread')
     - if current_user
       %span.pull-right
-        %button.btn.btn-xs.btn-primary
-          = link_to "Edit", edit_article_path(article)
-        %button.btn.btn-xs.btn-danger
-          = link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }
+        = link_to "Edit", edit_article_path(article), class: "btn btn-xs btn-primary"
+        = link_to 'Delete', article, method: :delete,
+        data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger"
     -#%p= read_more(article)
   .article-body= markdown(article.body)

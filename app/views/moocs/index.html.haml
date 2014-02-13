@@ -18,8 +18,8 @@
       .col-md-1= link_to 'Statement', mooc.statement_link
       - if current_user
         .col-md-2.pull-right
-          %button.btn.btn-sm.btn-primary= link_to 'Edit', edit_mooc_path(mooc)
-          %button.btn.btn-sm.btn-danger= link_to 'Delete', mooc, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Edit', edit_mooc_path(mooc), class: 'btn btn-sm btn-primary'
+          = link_to 'Delete', mooc, method: :delete,
+          data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
 - if current_user
-  %button.btn.btn-md.btn-primary
-    = link_to 'New Mooc', new_mooc_path
+  = link_to 'New Mooc', new_mooc_path, class: 'btn btn-md btn-primary'

@@ -14,4 +14,4 @@
       %td= date_string(page.updated_at, true)
       %td= link_to 'Edit', edit_page_path(page)
       %td= link_to 'Delete', page, method: :delete, data: { confirm: 'Are you sure?' }
-%button.btn.btn-md.btn-primary= link_to 'New Page', new_page_path
+= link_to 'New Page', new_page_path, class: 'btn btn-md btn-primary'
