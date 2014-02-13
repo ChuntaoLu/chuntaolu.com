@@ -76,5 +76,6 @@ module MyWeb
     # todo
     config.middleware.use Rack::GoogleAnalytics, tracker: ENV["GOOGLE_ANALYTICS_ID"]
     config.assets.initialize_on_precompile = false
+    ActsAsTaggableOn.remove_unused_tags = true
   end
 end
