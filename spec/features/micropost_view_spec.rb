@@ -87,6 +87,15 @@ describe 'the micropost view', type: :feature do
     end
   end
 
+  describe "optional source link" do
+    let!(:micropost_3) { FactoryGirl.create(:micropost, source_link: 'source') }
+    it 'could have an optional link points to an external source' do
+      visit microposts_path
+      source_link = page.find('.source-link')
+      expect(source_link[:href]).to eq('source')
+    end
+  end
+
 end
 
 

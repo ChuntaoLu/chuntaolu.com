@@ -1,4 +1,5 @@
 = simple_form_for(@micropost) do |f|
   = f.input :content
   = f.input :tag_list, label: "Tags (separated by commas)"
+  = f.input :source_link
   = f.submit

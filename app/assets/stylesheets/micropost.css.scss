@@ -42,6 +42,13 @@
       text-decoration: none;
       color: #dedede;
     }
+    a.source-link {
+      vertical-align: middle;
+      color: #525d62;
+      &:hover{
+        color: #859900;
+      }
+    }
   }
   .micropost-info.well {
     background-color: #ffffff;
