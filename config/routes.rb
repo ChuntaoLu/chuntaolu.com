@@ -1,7 +1,7 @@
 MyWeb::Application.routes.draw do
 
-  post 'blog', to: 'articles#create'
-  root to: "articles#index", path: 'blog'
+  post 'til', to: 'microposts#create'
+  root to: "microposts#index", path: 'til'
 
   resources :articles, path: 'blog' do
     collection do

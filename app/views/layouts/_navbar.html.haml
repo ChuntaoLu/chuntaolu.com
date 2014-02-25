@@ -14,10 +14,10 @@
       -#= link_to "Chuntao Lu", root_path, class: "navbar-brand"
     #bs-navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav.pull-right
-        %li{class: active?(articles_path)}
-          = link_to "Blog", articles_path
         %li{class: active?(microposts_path)}
           = link_to "TIL", microposts_path
+        %li{class: active?(articles_path)}
+          = link_to "Blog", articles_path
         %li{class: active?(moocs_path)}
           = link_to 'Mooc', moocs_path
         - ['projects', 'about'].each do |page_name|
